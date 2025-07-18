@@ -1,6 +1,5 @@
 from .base_tool import BaseTool
 import os
-import tempfile
 
 class WriteFileTool(BaseTool):
     def __init__(self, config: dict):

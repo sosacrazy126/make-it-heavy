@@ -1,6 +1,6 @@
 import os
 import importlib
-from typing import Dict, List
+from typing import Dict
 from .base_tool import BaseTool
 
 def discover_tools(config: dict = None, silent: bool = False) -> Dict[str, BaseTool]:

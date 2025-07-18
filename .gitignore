@@ -238,4 +238,18 @@ $RECYCLE.BIN/
 # For example:
 # data/
 # output/
-# results/ 
+# results/
+
+# Generated analysis files
+recursive_ai_analysis.md
+recursive_self_improving_ai_analysis.md
+*_analysis.md
+
+# Demo and test files that may contain sensitive data
+demo_*.py
+test_*.py
+client_example.py
+
+# Generated questions/answers files
+questions.json
+answers.json 

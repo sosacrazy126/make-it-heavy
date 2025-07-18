@@ -2,7 +2,6 @@ from .base_tool import BaseTool
 from ddgs import DDGS
 from bs4 import BeautifulSoup
 import requests
-import json
 
 class SearchTool(BaseTool):
     def __init__(self, config: dict):

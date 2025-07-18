@@ -1,4 +1,5 @@
 from .base_tool import BaseTool
+from datetime import datetime
 
 class TaskDoneTool(BaseTool):
     def __init__(self, config: dict):
@@ -40,5 +41,4 @@ class TaskDoneTool(BaseTool):
     
     def _get_timestamp(self) -> str:
         """Get current timestamp"""
-        from datetime import datetime
         return datetime.now().strftime("%Y-%m-%d %H:%M:%S")

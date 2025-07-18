@@ -1,5 +1,6 @@
 import json
 import yaml
+import os
 from openai import OpenAI
 from tools import discover_tools
 
@@ -12,10 +13,18 @@ class OpenRouterAgent:
         # Silent mode for orchestrator (suppresses debug output)
         self.silent = silent
         
+        # Get API key from environment variable first, then fall back to config
+        api_key = os.getenv('OPENROUTER_API_KEY')
+        if not api_key:
+            # Fallback to config file
+            api_key = self.config.get('openrouter', {}).get('api_key')
+            if not api_key:
+                raise ValueError("API key not found. Set OPENROUTER_API_KEY environment variable or add 'api_key' to config.yaml under 'openrouter' section.")
+        
         # Initialize OpenAI client with OpenRouter
         self.client = OpenAI(
             base_url=self.config['openrouter']['base_url'],
-            api_key=self.config['openrouter']['api_key']
+            api_key=api_key
         )
         
         # Discover tools dynamically
